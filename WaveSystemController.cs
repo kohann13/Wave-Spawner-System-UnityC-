@@ -12,22 +12,20 @@ public class WaveSystemController : MonoBehaviour
     [System.Serializable]
     public class Wave
     {
-        public string Name; //Nome da wave
+        public string Name; //Nome da onda
         public GameObject[] Enemys; // inimigos que podem ser instanciados
-        public int EnemyCount; // quantidade de inimigos da wave
+        public int EnemyCount; // quantidade de inimigos da onda
         public float SpawnRate; // tempo entre cada inimigo instanciado
     }
     [SerializeField] private Wave[] Waves;
     [SerializeField] private Transform[] SpawnPoints;
 
-    private int NextWave = 0; //Index da proxima Wave na Array
-    [SerializeField] private float TimeBetweenWaves; // Tempo de espera entre cada wave
-    [SerializeField] private float WaveCountDown; // Contagem regressiva para proxima Wave
-    private float TimeVerification; // tempo entre cada verificação para ver se a inimigos vivos
+    private int NextWave = 0; //Index da proxima onda na Array
+    [SerializeField] private float TimeBetweenWaves; // Tempo de espera entre cada onda
+    [SerializeField] private float WaveCountDown; // Contagem regressiva para proxima onda
+    private float TimeVerification; // tempo entre cada verificaÃ§Ã£o para ver se a inimigos vivos
 
     [SerializeField]private SpawnState State = SpawnState.COUNTING;
-
-    private GameObject GMC;
 
     void Start()
     {
@@ -91,8 +89,6 @@ public class WaveSystemController : MonoBehaviour
         if (NextWave + 1 > Waves.Length - 1)
         {
             Debug.Log("Room Completed");
-            GMC.GetComponent<GameController>().ChangeRoom();
-            Destroy(gameObject);
         }
         else
         {
