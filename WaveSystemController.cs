@@ -30,8 +30,6 @@ public class WaveSystemController : MonoBehaviour
     void Start()
     {
         WaveCountDown = TimeBetweenWaves;
-
-        GMC = GameObject.FindGameObjectWithTag("GameController");
     }
 
     void Update()
